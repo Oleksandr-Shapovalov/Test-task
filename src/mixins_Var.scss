@@ -1,0 +1,45 @@
+$primary: #f4e041;
+$secondary: #00bdd3;
+$bg: #f8f8f8;
+@mixin button {
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 162%;
+  background: $primary;
+  border-radius: 80px;
+  border: none;
+  width: 100px;
+  height: 34px;
+  &:hover {
+    background: #ffe302;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  &:disabled {
+    background: #b4b4b4;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+@mixin smallerThen360 {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
+@mixin smallerThen768 {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin smallerThen1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin biggerThen1024 {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}

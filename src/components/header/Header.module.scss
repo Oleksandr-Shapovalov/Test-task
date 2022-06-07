@@ -1,0 +1,20 @@
+.header_block {
+  height: 60px;
+  width: 100%;
+  &:first-child {
+    background: rgba(22, 22, 22, 1);
+  }
+  &:nth-child(2) {
+    display: flex;
+    align-items: center;
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+.buttons {
+  a:first-child {
+    margin-right: 10px !important;
+  }
+}

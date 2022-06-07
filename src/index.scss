@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import "./mixins_Var.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif !important;
+}
+
+body {
+  font-size: 16px;
+}
+._container {
+  margin: 0 auto !important;
+  max-width: 1170px;
+  width: 100%;
+}
+._paddingContent {
+  @include biggerThen1024 {
+  }
+  @include smallerThen1024 {
+    padding-left: 30px !important;
+    padding-right: 30px !important ;
+  }
+  @include smallerThen768 {
+    padding-left: 16px !important;
+    padding-right: 16px !important ;
+  }
+  @include smallerThen360 {
+    padding-left: 8px !important;
+    padding-right: 8px !important ;
+  }
+}
+.button {
+  @include button;
+}
+.h1 {
+  text-align: center;
+  font-size: 40px;
+  line-height: 100%;
+  font-weight: 400;
+}
+main {
+  background: $bg;
+}

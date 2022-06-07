@@ -1,0 +1,27 @@
+@import "./../../mixins_Var";
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 650px;
+  background: url("./../../../Assets/pexels-alexandr-podvalny-1227513.jpeg")
+    no-repeat center center;
+  background-size: cover;
+  @include smallerThen768 {
+    height: 500px;
+  }
+  .content {
+    max-width: 380px;
+    margin-bottom: 32px !important;
+    h1 {
+      margin-bottom: 21px;
+    }
+    p {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 26px;
+    }
+  }
+}

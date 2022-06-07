@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import GetRequest from "./components/get-request/GetRequest";
+import Header from "./components/header/Header";
+import LoaderProvider from "./components/Loader/LoaderContext";
+import PostRequest from "./components/post-request/PostRequest";
+import StartScreen from "./components/start_screen/StartScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LoaderProvider>
+        <Header />
+        <main>
+          <div className="_container">
+            <StartScreen />
+            <GetRequest />
+            <PostRequest />
+          </div>
+        </main>
+      </LoaderProvider>
+    </>
   );
 }
 
