@@ -1,0 +1,86 @@
+@import "./../../../../mixins_Var";
+$radioSize: 20px;
+.positionsWrap {
+  width: $formWidth;
+  margin-bottom: 47px;
+  .positionsContent {
+    h2 {
+      font-size: 1rem;
+      line-height: 162%;
+      color: rgba(0, 0, 0, 0.87);
+      margin-bottom: 11px;
+      font-weight: 400;
+    }
+    .positions {
+      li {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: 1rem;
+        line-height: 162%;
+        color: rgba(0, 0, 0, 0.87);
+        margin-bottom: 7px;
+        input {
+          visibility: hidden;
+          height: $radioSize;
+          width: $radioSize;
+          margin-right: 12px;
+          color: $secondary;
+          position: relative;
+          &[type="radio"]:after {
+            transition: all 0.25s ease-in-out;
+            width: $radioSize;
+            height: $radioSize;
+            border-radius: $radioSize;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: transparent;
+            content: "";
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid rgba(208, 207, 207, 1);
+          }
+
+          &[type="radio"]:checked:after {
+            transition: all 0.25s ease-in-out;
+            width: $radioSize;
+            height: $radioSize;
+            border-radius: $radioSize;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: transparent;
+            content: "";
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid $secondary;
+          }
+          &[type="radio"]:checked:before {
+            transition: all 0.25s ease-in-out;
+            width: calc($radioSize / 2);
+            height: calc($radioSize / 2);
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            background-color: $secondary;
+            content: "";
+            display: inline-block;
+            visibility: visible;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 412px) {
+  .positionsWrap {
+    width: $formWidthSmall_412;
+  }
+  @include smallerThen360 {
+    .positionsWrap {
+      width: $formWidthSmall_360;
+    }
+  }
+}

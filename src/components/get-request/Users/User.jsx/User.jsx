@@ -13,7 +13,7 @@ const User = ({ photo, name, position, email, phone }) => {
         <img src={photo || userPhotoMock} alt="User Photo" />
       </div>
       <div className={style.tooltipBox}>
-        <div className={style.name}>{name}</div>{" "}
+        <div className={style.name}>{name}</div>
         <span className={style.tooltip}>{name}</span>
       </div>
       <div className={style.info}>

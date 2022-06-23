@@ -1,33 +1,21 @@
-import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Loader from "../Loader/Loader";
 import { useLoader } from "../Loader/LoaderContext";
 import style from "./GetRequest.module.scss";
+import { useGetRequest } from "./GetRequestContext";
 import Users from "./Users/Users";
 const GetRequest = () => {
+  const getPeopleURL =
+    "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6";
   const loader = useLoader();
-  const [users, setUsers] = useState([]);
-  const [nextUrl, setNextUrl] = useState("");
-  const [pageCount, setPageCount] = useState(0);
-  const [page, setPage] = useState(1);
+  const usersStore = useGetRequest();
+  const isLastPage = usersStore.page !== usersStore.pageCount;
   const userRequest = (url) => {
-    loader.show();
-
-    axios.get(url).then(({ data }) => {
-      setUsers(data.users);
-      setPageCount(data.total_pages);
-      setPage(data.page);
-      setNextUrl(data.links.next_url);
-      loader.hide();
-
-      console.log("get  ", users);
-    });
+    usersStore.setUsers(url);
   };
   useEffect(() => {
-    userRequest(
-      "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6"
-    );
+    userRequest(getPeopleURL);
   }, []);
 
   return (
@@ -37,14 +25,16 @@ const GetRequest = () => {
       </h2>
       <div className="_paddingContent">
         <Loader />
-        {loader.visibility ? null : <Users users={users} />}
+        {loader.visibility ? null : (
+          <Users users={usersStore.users} isLastPage={isLastPage} />
+        )}
       </div>
       <div className={style.btnBox}>
-        {page !== pageCount && (
+        {isLastPage && (
           <button
-            style={{ width: 120 }}
+            style={{ width: 120, marginTop: 50 }}
             className="button"
-            onClick={() => userRequest(nextUrl)}
+            onClick={() => userRequest(usersStore.nextUrl)}
           >
             Show more
           </button>

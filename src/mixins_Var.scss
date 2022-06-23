@@ -1,7 +1,11 @@
 $primary: #f4e041;
 $secondary: #00bdd3;
 $bg: #f8f8f8;
+$formWidth: 380px;
+$formWidthSmall_412: calc(100vw - 2 * 16px);
+$formWidthSmall_360: calc(100vw - 2 * 8px);
 @mixin button {
+  transition: all 0.3s ease-in-out;
   color: rgba(0, 0, 0, 0.87);
   display: inline-flex;
   justify-content: center;

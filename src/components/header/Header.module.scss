@@ -10,11 +10,29 @@
     .container {
       display: flex;
       justify-content: space-between;
+      .buttons {
+        a:first-child {
+          margin-right: 10px !important;
+        }
+      }
     }
   }
 }
-.buttons {
-  a:first-child {
-    margin-right: 10px !important;
+@media (max-width: 340px) {
+  .header_block {
+    height: 90px;
+    .container {
+      justify-content: center;
+      flex-wrap: wrap;
+      .logo {
+        text-align: center;
+        flex: 1 1 auto;
+      }
+      .buttons {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }

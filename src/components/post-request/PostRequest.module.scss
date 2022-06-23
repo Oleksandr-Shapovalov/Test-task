@@ -4,4 +4,17 @@
   .title {
     margin-bottom: 50px !important;
   }
+  .SuccesfulReg {
+    padding-top: 0;
+    transform-origin: top;
+    transition: all 1s ease-in-out;
+    max-height: 0px;
+    overflow: hidden;
+
+    .boxImg {
+      text-align: center;
+      img {
+      }
+    }
+  }
 }
