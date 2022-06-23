@@ -45,4 +45,7 @@ main {
 }
 input {
   outline: none;
+  &:active {
+    outline: none;
+  }
 }
