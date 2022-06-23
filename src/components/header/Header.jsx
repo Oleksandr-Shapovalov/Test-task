@@ -9,7 +9,7 @@ const Header = () => {
       <div className={style.header_block}>
         <div className={`_container  _paddingContent ${style.container}`}>
           <div className={style.logo}>
-            <img src={logo} alt="" />
+            <img width={"104px"} height={"26px"} src={logo} alt="" />
           </div>
           <div className={style.buttons}>
             <AnchorLink href="#Users" className="button">

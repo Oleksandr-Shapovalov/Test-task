@@ -97,7 +97,12 @@ const PostRequest = () => {
           User successfully registered
         </h2>
         <div className={style.boxImg}>
-          <img src={SuccesfulRegPhoto} alt="" />
+          <img
+            src={SuccesfulRegPhoto}
+            alt=""
+            width={"328px"}
+            height={"290px"}
+          />
         </div>
       </div>
     </div>

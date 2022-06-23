@@ -10,7 +10,12 @@ const User = ({ photo, name, position, email, phone }) => {
   return (
     <div className={`${style.card} `}>
       <div className={style.UserPhoto}>
-        <img src={photo || userPhotoMock} alt="User Photo" />
+        <img
+          src={photo === "" ? userPhotoMock : photo}
+          alt="User Photo"
+          width={"70px"}
+          height={"70px"}
+        />
       </div>
       <div className={style.tooltipBox}>
         <div className={style.name}>{name}</div>
