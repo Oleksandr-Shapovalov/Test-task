@@ -3,7 +3,6 @@ import React, { createContext, useContext, useReducer } from "react";
 import { useLoader } from "../Loader/LoaderContext";
 
 const GetRequestContext = createContext(null);
-
 const SET_USERS = "SET_USERS";
 
 const reducer = (state, action) => {

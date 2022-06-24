@@ -1,11 +1,12 @@
 import React from "react";
 import { useLoader } from "./LoaderContext";
 import style from "./Loader.module.scss";
-const Loader = () => {
+const Loader = ({ loaderHeight }) => {
   const loader = useLoader();
+
   if (!loader.visibility) return null;
   return (
-    <div className={style.loaderWrap}>
+    <div className={style.loaderWrap} style={{ height: loaderHeight }}>
       <span>
         <svg
           width="48"

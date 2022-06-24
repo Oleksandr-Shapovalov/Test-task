@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import User from "./User.jsx/User";
 import style from "./Users.module.scss";
-const Users = ({ users, isLastPage }) => {
+const Users = ({ users, setLoaderHeight }) => {
+  const usersElem = useRef(null);
   const mediaQuery615px = window.matchMedia("(max-width: 615px)");
   const styles = {};
   styles["gridTemplateRows"] = `repeat(${Math.ceil(users.length / 3)}, 1fr)`;
@@ -12,9 +13,12 @@ const Users = ({ users, isLastPage }) => {
   if (mediaQuery900px.matches) {
     styles["gridTemplateRows"] = `repeat(${Math.ceil(users.length / 2)}, 1fr)`;
   }
+  useEffect(() => {
+    setLoaderHeight(usersElem.current.scrollHeight);
+  }, []);
 
   return (
-    <div className={`${style.Users} `} style={styles}>
+    <div ref={usersElem} className={`${style.Users} `} style={styles}>
       {users.map((user) => (
         <User key={user.id} {...user} />
       ))}

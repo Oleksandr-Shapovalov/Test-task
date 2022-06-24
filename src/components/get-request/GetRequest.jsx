@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import Loader from "../Loader/Loader";
 import { useLoader } from "../Loader/LoaderContext";
@@ -6,6 +6,7 @@ import style from "./GetRequest.module.scss";
 import { useGetRequest } from "./GetRequestContext";
 import Users from "./Users/Users";
 const GetRequest = () => {
+  const [loaderHeight, setLoaderHeight] = useState(0);
   const getPeopleURL =
     "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6";
   const loader = useLoader();
@@ -24,9 +25,10 @@ const GetRequest = () => {
         Working with GET request
       </h2>
       <div className="_paddingContent">
-        <Loader />
-        {loader.visibility ? null : (
-          <Users users={usersStore.users} isLastPage={isLastPage} />
+        {loader.visibility ? (
+          <Loader loaderHeight={loaderHeight} />
+        ) : (
+          <Users users={usersStore.users} setLoaderHeight={setLoaderHeight} />
         )}
       </div>
       <div className={style.btnBox}>
