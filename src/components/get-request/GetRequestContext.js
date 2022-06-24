@@ -35,7 +35,6 @@ const GetRequestProvider = ({ children }) => {
       loader.show();
 
       const data = (await axios.get(URL || state.nextUrl)).data;
-      console.log(data);
       dispatch({ type: SET_USERS, data });
       loader.hide();
     } catch (error) {

@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./User.module.scss";
 import userPhotoMock from "./../../../../../Assets/photo-cover.svg";
+
 const User = ({ photo, name, position, email, phone }) => {
+  const [avatar, setAvatar] = useState("initialState");
+
   phone = phone.split("");
   phone.splice(3, 0, " (");
   phone.splice(7, 0, ") ");
   phone.splice(11, 0, " ");
   phone.splice(14, 0, " ");
+  useEffect(() => {
+    fetch(photo)
+      .then((data) => setAvatar(data.url))
+      .catch(() => {
+        setAvatar(userPhotoMock);
+      });
+  }, []);
   return (
     <div className={`${style.card} `}>
       <div className={style.UserPhoto}>
-        <img
-          src={photo === "" ? userPhotoMock : photo}
-          alt="User Photo"
-          width={"70px"}
-          height={"70px"}
-        />
+        <img src={avatar} alt="User Photo" width={"70px"} height={"70px"} />
       </div>
       <div className={style.tooltipBox}>
         <div className={style.name}>{name}</div>
