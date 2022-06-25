@@ -19,16 +19,26 @@ const Positions = ({ position, setPosition }) => {
         <ul className={style.positions}>
           {vacancies.map((pos) => (
             <li key={pos.id}>
-              <input
-                checked={position === pos.id}
-                name="position"
-                type={"radio"}
-                value={pos.id}
-                id={`position_id${pos.id}`}
-                onChange={() => {
-                  setPosition(pos.id);
-                }}
-              />
+              <div className={style.input}>
+                <input
+                  checked={position === pos.id}
+                  name="position"
+                  type={"radio"}
+                  value={pos.id}
+                  id={`position_id${pos.id}`}
+                  onChange={() => {
+                    setPosition(pos.id);
+                  }}
+                />
+                <label
+                  htmlFor={`position_id${pos.id}`}
+                  className={style.outline}
+                ></label>
+                <label
+                  htmlFor={`position_id${pos.id}`}
+                  className={style.dot}
+                ></label>
+              </div>
               <label htmlFor={`position_id${pos.id}`}>{pos.name}</label>
             </li>
           ))}

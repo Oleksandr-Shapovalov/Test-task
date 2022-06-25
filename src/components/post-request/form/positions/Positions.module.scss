@@ -20,21 +20,16 @@ $radioSize: 20px;
         line-height: 162%;
         color: rgba(0, 0, 0, 0.87);
         margin-bottom: 7px;
-        input {
-          visibility: hidden;
-          height: $radioSize;
-          width: $radioSize;
-          margin-right: 12px;
-          color: $secondary;
+        .input {
           position: relative;
-          &[type="radio"]:after {
+          & > input ~ .outline {
             transition: all 0.25s ease-in-out;
             width: $radioSize;
             height: $radioSize;
             border-radius: $radioSize;
-            top: -2px;
+            top: 2px;
             left: -1px;
-            position: relative;
+            position: absolute;
             background-color: transparent;
             content: "";
             display: inline-block;
@@ -42,32 +37,38 @@ $radioSize: 20px;
             border: 1px solid rgba(208, 207, 207, 1);
           }
 
-          &[type="radio"]:checked:after {
+          & > input:checked ~ .outline {
             transition: all 0.25s ease-in-out;
             width: $radioSize;
             height: $radioSize;
             border-radius: $radioSize;
-            top: -2px;
+            top: 2px;
             left: -1px;
-            position: relative;
+            position: absolute;
             background-color: transparent;
             content: "";
             display: inline-block;
             visibility: visible;
             border: 1px solid $secondary;
           }
-          &[type="radio"]:checked:before {
+          & > input:checked ~ .dot {
             transition: all 0.25s ease-in-out;
             width: calc($radioSize / 2);
             height: calc($radioSize / 2);
             position: absolute;
-            top: 3px;
-            left: 4.5px;
+            top: 7px;
+            left: 4px;
             background-color: $secondary;
             content: "";
             display: inline-block;
             visibility: visible;
             border-radius: 50%;
+          }
+          input {
+            visibility: hidden;
+            height: $radioSize;
+            width: $radioSize;
+            margin-right: 12px;
           }
         }
       }
